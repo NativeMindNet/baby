@@ -5,6 +5,8 @@ import '../../providers/localization_provider.dart';
 import '../../providers/repository_providers.dart';
 import '../../providers/today_provider.dart';
 import '../../widgets/task_card.dart';
+import '../profile/profile_screen.dart';
+import '../task/task_detail_screen.dart';
 
 /// Today screen - main screen showing daily plan
 class TodayScreen extends ConsumerStatefulWidget {
@@ -35,19 +37,19 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
   }
 
   Future<void> _onTaskTap(String taskId) async {
-    // Navigate to task detail screen (Phase 5)
-    // For now, just show a placeholder dialog
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Task Detail'),
-        content: const Text('Task flow coming in Phase 5'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('OK'),
-          ),
-        ],
+    final todayState = ref.read(todayProvider);
+    if (todayState.plan == null) return;
+
+    // Find the task
+    final task = todayState.tasks.firstWhere((t) => t.id == taskId);
+
+    // Navigate to task detail screen
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TaskDetailScreen(
+          task: task,
+          planId: todayState.plan!.id,
+        ),
       ),
     );
   }
@@ -66,18 +68,9 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
           IconButton(
             icon: const Icon(Icons.person),
             onPressed: () {
-              // Navigate to profile (Phase 6)
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('Profile'),
-                  content: const Text('Profile screen coming in Phase 6'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('OK'),
-                    ),
-                  ],
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ProfileScreen(),
                 ),
               );
             },
