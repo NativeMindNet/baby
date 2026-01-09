@@ -1,0 +1,198 @@
+[
+  {
+    "id": "reg_001",
+    "minAgeDays": 120,
+    "maxAgeDays": 270,
+    "durationMinutes": 5,
+    "category": "regulation",
+    "difficulty": 1,
+    "titleKey": "task_reg_001_title",
+    "stepKeys": [
+      "task_reg_001_step_1",
+      "task_reg_001_step_2",
+      "task_reg_001_step_3"
+    ],
+    "stopIfKey": "task_reg_001_stop_if",
+    "fallbackTaskId": null
+  },
+  {
+    "id": "reg_002",
+    "minAgeDays": 120,
+    "maxAgeDays": 270,
+    "durationMinutes": 10,
+    "category": "regulation",
+    "difficulty": 2,
+    "titleKey": "task_reg_002_title",
+    "stepKeys": [
+      "task_reg_002_step_1",
+      "task_reg_002_step_2",
+      "task_reg_002_step_3",
+      "task_reg_002_step_4"
+    ],
+    "stopIfKey": "task_reg_002_stop_if",
+    "fallbackTaskId": "reg_001"
+  },
+  {
+    "id": "att_001",
+    "minAgeDays": 120,
+    "maxAgeDays": 270,
+    "durationMinutes": 5,
+    "category": "attention",
+    "difficulty": 1,
+    "titleKey": "task_att_001_title",
+    "stepKeys": [
+      "task_att_001_step_1",
+      "task_att_001_step_2",
+      "task_att_001_step_3"
+    ],
+    "stopIfKey": "task_att_001_stop_if",
+    "fallbackTaskId": null
+  },
+  {
+    "id": "att_002",
+    "minAgeDays": 150,
+    "maxAgeDays": 270,
+    "durationMinutes": 7,
+    "category": "attention",
+    "difficulty": 2,
+    "titleKey": "task_att_002_title",
+    "stepKeys": [
+      "task_att_002_step_1",
+      "task_att_002_step_2",
+      "task_att_002_step_3"
+    ],
+    "stopIfKey": "task_att_002_stop_if",
+    "fallbackTaskId": "att_001"
+  },
+  {
+    "id": "mot_001",
+    "minAgeDays": 120,
+    "maxAgeDays": 210,
+    "durationMinutes": 10,
+    "category": "motor",
+    "difficulty": 1,
+    "titleKey": "task_mot_001_title",
+    "stepKeys": [
+      "task_mot_001_step_1",
+      "task_mot_001_step_2",
+      "task_mot_001_step_3",
+      "task_mot_001_step_4"
+    ],
+    "stopIfKey": "task_mot_001_stop_if",
+    "fallbackTaskId": null
+  },
+  {
+    "id": "mot_002",
+    "minAgeDays": 150,
+    "maxAgeDays": 270,
+    "durationMinutes": 15,
+    "category": "motor",
+    "difficulty": 3,
+    "titleKey": "task_mot_002_title",
+    "stepKeys": [
+      "task_mot_002_step_1",
+      "task_mot_002_step_2",
+      "task_mot_002_step_3"
+    ],
+    "stopIfKey": "task_mot_002_stop_if",
+    "fallbackTaskId": "mot_001"
+  },
+  {
+    "id": "cau_001",
+    "minAgeDays": 120,
+    "maxAgeDays": 270,
+    "durationMinutes": 5,
+    "category": "causeEffect",
+    "difficulty": 1,
+    "titleKey": "task_cau_001_title",
+    "stepKeys": [
+      "task_cau_001_step_1",
+      "task_cau_001_step_2",
+      "task_cau_001_step_3"
+    ],
+    "stopIfKey": "task_cau_001_stop_if",
+    "fallbackTaskId": null
+  },
+  {
+    "id": "cau_002",
+    "minAgeDays": 150,
+    "maxAgeDays": 270,
+    "durationMinutes": 10,
+    "category": "causeEffect",
+    "difficulty": 2,
+    "titleKey": "task_cau_002_title",
+    "stepKeys": [
+      "task_cau_002_step_1",
+      "task_cau_002_step_2",
+      "task_cau_002_step_3",
+      "task_cau_002_step_4"
+    ],
+    "stopIfKey": "task_cau_002_stop_if",
+    "fallbackTaskId": "cau_001"
+  },
+  {
+    "id": "com_001",
+    "minAgeDays": 120,
+    "maxAgeDays": 270,
+    "durationMinutes": 5,
+    "category": "communication",
+    "difficulty": 1,
+    "titleKey": "task_com_001_title",
+    "stepKeys": [
+      "task_com_001_step_1",
+      "task_com_001_step_2",
+      "task_com_001_step_3"
+    ],
+    "stopIfKey": "task_com_001_stop_if",
+    "fallbackTaskId": null
+  },
+  {
+    "id": "com_002",
+    "minAgeDays": 150,
+    "maxAgeDays": 270,
+    "durationMinutes": 10,
+    "category": "communication",
+    "difficulty": 2,
+    "titleKey": "task_com_002_title",
+    "stepKeys": [
+      "task_com_002_step_1",
+      "task_com_002_step_2",
+      "task_com_002_step_3"
+    ],
+    "stopIfKey": "task_com_002_stop_if",
+    "fallbackTaskId": "com_001"
+  },
+  {
+    "id": "ind_001",
+    "minAgeDays": 120,
+    "maxAgeDays": 270,
+    "durationMinutes": 5,
+    "category": "independence",
+    "difficulty": 1,
+    "titleKey": "task_ind_001_title",
+    "stepKeys": [
+      "task_ind_001_step_1",
+      "task_ind_001_step_2",
+      "task_ind_001_step_3"
+    ],
+    "stopIfKey": "task_ind_001_stop_if",
+    "fallbackTaskId": null
+  },
+  {
+    "id": "ind_002",
+    "minAgeDays": 150,
+    "maxAgeDays": 270,
+    "durationMinutes": 10,
+    "category": "independence",
+    "difficulty": 2,
+    "titleKey": "task_ind_002_title",
+    "stepKeys": [
+      "task_ind_002_step_1",
+      "task_ind_002_step_2",
+      "task_ind_002_step_3",
+      "task_ind_002_step_4"
+    ],
+    "stopIfKey": "task_ind_002_stop_if",
+    "fallbackTaskId": "ind_001"
+  }
+]
