@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'core/localization/localization_service.dart';
 import 'core/theme/app_theme.dart';
 import 'data/local/hive_setup.dart';
@@ -16,9 +17,11 @@ void main() async {
   // Initialize Hive storage
   await HiveSetup.init();
 
-  // Initialize localization
+  // Initialize localization with saved locale
   final localizationService = LocalizationService();
-  await localizationService.load('en'); // Default to English
+  final prefs = await SharedPreferences.getInstance();
+  final savedLocale = prefs.getString('app_locale') ?? 'en';
+  await localizationService.load(savedLocale);
 
   runApp(
     ProviderScope(
@@ -37,9 +40,12 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final brightness = ref.watch(effectiveBrightnessProvider);
     final onboardingState = ref.watch(onboardingProvider);
+    final currentLocale = ref.watch(appLocaleProvider);
+    final loc = ref.watch(localizationServiceProvider);
 
     return MaterialApp(
-      title: 'Daily Baby Coach',
+      key: ValueKey(currentLocale.code), // Force rebuild on locale change
+      title: loc.t('app_name'),
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: brightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light,

@@ -1,6 +1,26 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
+/// Supported locales
+enum AppLocale {
+  en('en', 'English'),
+  ru('ru', 'Русский'),
+  th('th', 'ไทย'),
+  zh('zh', '中文'),
+  hi('hi', 'हिन्दी');
+
+  const AppLocale(this.code, this.displayName);
+  final String code;
+  final String displayName;
+
+  static AppLocale fromCode(String code) {
+    return AppLocale.values.firstWhere(
+      (locale) => locale.code == code,
+      orElse: () => AppLocale.en,
+    );
+  }
+}
+
 /// Service for loading and accessing localized strings
 class LocalizationService {
   Map<String, String> _strings = {};

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../core/localization/localization_service.dart';
 import '../../../domain/models/baby_profile.dart';
 import '../../providers/localization_provider.dart';
 import '../../providers/repository_providers.dart';
@@ -14,6 +15,7 @@ class ProfileScreen extends ConsumerWidget {
     final loc = ref.watch(localizationServiceProvider);
     final theme = Theme.of(context);
     final themeMode = ref.watch(themeModeProvider);
+    final currentLocale = ref.watch(appLocaleProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -168,6 +170,27 @@ class ProfileScreen extends ConsumerWidget {
                 Card(
                   child: Column(
                     children: [
+                      ListTile(
+                        leading: Icon(
+                          Icons.language,
+                          color: theme.colorScheme.primary,
+                        ),
+                        title: Text(loc.t('profile_language')),
+                        trailing: DropdownButton<AppLocale>(
+                          value: currentLocale,
+                          onChanged: (value) {
+                            if (value != null) {
+                              ref.read(appLocaleProvider.notifier).setLocale(value);
+                            }
+                          },
+                          items: AppLocale.values.map((locale) {
+                            return DropdownMenuItem(
+                              value: locale,
+                              child: Text(locale.displayName),
+                            );
+                          }).toList(),
+                        ),
+                      ),
                       ListTile(
                         leading: Icon(
                           Icons.palette_outlined,
